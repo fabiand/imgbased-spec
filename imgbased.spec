@@ -8,13 +8,15 @@
 Summary:        Tools to work with an image based rootfs
 Name:           imgbased
 Version:        0.1
-Release:        0.4%{?gitversion}%{?dist}
+Release:        0.5%{?gitversion}%{?dist}
 
 License:        GPLv2+
 URL:            https://github.com/fabiand/%{name}
 Source0:        %{?source}
 BuildArch:      noarch
 
+BuildRequires:  autoconf
+BuildRequires:  automake
 BuildRequires:  python2-devel
 BuildRequires:  asciidoc
 BuildRequires:  pylint
@@ -93,6 +95,9 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.5.git20140708.804811f
+- Add autoconf and automake
+
 * Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.4.git20140708.804811f
 - Conditional requriement, based on the Fedora version
 
