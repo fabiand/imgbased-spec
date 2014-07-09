@@ -8,7 +8,7 @@
 Summary:        Tools to work with an image based rootfs
 Name:           imgbased
 Version:        0.1
-Release:        0.3%{?gitversion}%{?dist}
+Release:        0.4%{?gitversion}%{?dist}
 
 License:        GPLv2+
 URL:            https://github.com/fabiand/%{name}
@@ -16,12 +16,15 @@ Source0:        %{?source}
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
-BuildRequires:  python3-devel
 BuildRequires:  asciidoc
 BuildRequires:  pylint
 BuildRequires:  pyflakes
 BuildRequires:  python-pep8
+%if 0%{?fedora} > 19
+BuildRequires:  python-pexpect
+%else
 BuildRequires:  pexpect
+%endif
 
 Requires:       lvm2
 
@@ -90,6 +93,9 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.4.git20140708.804811f
+- Conditional requriement, based on the Fedora version
+
 * Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.3.git20140708.804811f
 - Fix package name: python-pexpect should be pexpect
 
