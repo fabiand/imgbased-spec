@@ -8,7 +8,7 @@
 Summary:        Tools to work with an image based rootfs
 Name:           imgbased
 Version:        0.1
-Release:        0.1%{?gitversion}%{?dist}
+Release:        0.2%{?gitversion}%{?dist}
 
 License:        GPLv2+
 URL:            https://github.com/fabiand/%{name}
@@ -18,7 +18,10 @@ BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python3-devel
 BuildRequires:  asciidoc
-BuildRequires:  pylint pyflakes python-pep8
+BuildRequires:  pylint
+BuildRequires:  pyflakes
+BuildRequires:  python-pep8
+BuildRequires:  pyhon-pexpect
 
 Requires:       lvm2
 
@@ -87,6 +90,9 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.2.git20140708.804811f
+- Reorder and add dependencies
+
 * Tue Jul 08 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.1.git20140708.804811f
 - Initial package
 
