@@ -1,14 +1,14 @@
 
-%global commit 804811f04355f57cd2ee4ca50d03ed8b9a6ba4bc
+%global commit 8679e61c2dab972ab4781375b749c735d99d8c3d
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate 20140708
+%global commitdate 20140714
 %global gitversion .git%{commitdate}.%{shortcommit}
-%global source https://github.com/fabiand/%{name}/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
+%global source https://github.com/fabiand/%{name}/archive/%{commit}/%{name}-%{version}%{gitversion}.tar.gz
 
 Summary:        Tools to work with an image based rootfs
 Name:           imgbased
 Version:        0.1
-Release:        0.5%{?gitversion}%{?dist}
+Release:        0.6%{?gitversion}%{?dist}
 
 License:        GPLv2+
 URL:            https://github.com/fabiand/%{name}
@@ -83,9 +83,9 @@ make %{?_smp_mflags}
 
 
 %files
-%doc README.md
+%doc README.md LICENSE
 %{_sbindir}/imgbase
-%{_datadir}/%{name}/hooks.d/
+%{_datadir}/%{name}/
 %{python2_sitelib}/%{name}/
 %{_mandir}/man8/imgbase.8*
 
@@ -95,6 +95,10 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Mon Jul 14 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.6.git20140714.8679e61
+- Own datadir
+- Add LICENSE file
+
 * Wed Jul 09 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.5.git20140708.804811f
 - Add autoconf and automake
 
