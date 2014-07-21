@@ -1,14 +1,14 @@
 
-%global commit 8679e61c2dab972ab4781375b749c735d99d8c3d
+%global commit bb25471861a26bd27912adc83c6e15ff0e22bf2c
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate 20140714
+%global commitdate 20140721
 %global gitversion .git%{commitdate}.%{shortcommit}
 %global source https://github.com/fabiand/%{name}/archive/%{commit}/%{name}-%{version}%{gitversion}.tar.gz
 
 Summary:        Tools to work with an image based rootfs
 Name:           imgbased
 Version:        0.1
-Release:        0.6%{?gitversion}%{?dist}
+Release:        0.7%{?gitversion}%{?dist}
 
 License:        GPLv2+
 URL:            https://github.com/fabiand/%{name}
@@ -95,6 +95,10 @@ make %{?_smp_mflags}
 
 
 %changelog
+* Mon Jul 21 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.7.git20140721.bb25471
+- Update to a later snapshot
+- Moves upstream spec into subdir
+
 * Mon Jul 14 2014 Fabian Deutsch <fabiand@redhat.com> - 0.1-0.6.git20140714.8679e61
 - Own datadir
 - Add LICENSE file
